@@ -5,8 +5,8 @@ const navlinks = [
     icon: "bx bxs-dashboard",
   },
   {
-    title: "Order",
-    link: "/order",
+    title: "Posts",
+    link: "/posts",
     icon: "bx bxs-folder-plus",
   },
   {
