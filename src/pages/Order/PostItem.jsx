@@ -47,7 +47,7 @@ const PostItem = () => {
   }
 
   return (
-    <div className="bg-white w-[75%] p-6 wrapper rounded shadow">
+    <div className="bg-white w-[80%] p-6 wrapper rounded shadow">
       <button
         className="bg-green-400 focus:ring-4 absolute end-2 px-3 py-2"
         onClick={() => back(-1)}

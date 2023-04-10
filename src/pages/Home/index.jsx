@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import TableRow from "../../ui/TableRow";
 import post from "../../api/post";
+import Label from "../../components/Label/Label";
 import Loader from "../../ui/Loader";
 import Input from "../../ui/Input";
 import Button from "../../ui/Button";
 import { ToastContainer, toast } from "react-toastify";
 
 const index = () => {
+  console.log("Home page render");
   const [data, setData] = useState([]);
   const [load, setLoad] = useState(false);
 
@@ -28,6 +30,7 @@ const index = () => {
   }
 
   useEffect(() => {
+    console.log("fetch data");
     getAll();
   }, []);
 
@@ -93,16 +96,20 @@ const index = () => {
           </tr>
         </thead>
         <tbody>
-          {data?.map((item, index) => {
-            return (
-              <TableRow
-                ind={index}
-                data={item}
-                key={index}
-                delFun={deletePost}
-              />
-            );
-          })}
+          {data?.length > 0 ? (
+            data?.map((item, index) => {
+              return (
+                <TableRow
+                  ind={index}
+                  data={item}
+                  key={index}
+                  delFun={deletePost}
+                />
+              );
+            })
+          ) : (
+            <h1 className="text-center">NOT FOUND</h1>
+          )}
         </tbody>
       </table>
       <ToastContainer position="top-center" autoClose={1000} />

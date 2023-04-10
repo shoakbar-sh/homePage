@@ -5,6 +5,7 @@ import "./loader.css";
 import Loader from "../../ui/Loader";
 
 const index = () => {
+  console.log("Posts page render");
   const [data, setData] = useState([]);
   const [load, setLoad] = useState(false);
 
@@ -40,9 +41,13 @@ const index = () => {
           </tr>
         </thead>
         <tbody>
-          {data?.map((item, index) => {
-            return <TableRow ind={index} data={item} key={index} />;
-          })}
+          {data.length > 0 ? (
+            data?.map((item, index) => {
+              return <TableRow ind={index} data={item} key={index} />;
+            })
+          ) : (
+            <h1 className="text-center">NOT FOUND</h1>
+          )}
         </tbody>
       </table>
     </div>
